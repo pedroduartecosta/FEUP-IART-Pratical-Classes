@@ -2,6 +2,7 @@
 For A* to achieve best results, heuristics should be positive
 A*:f=g+h
 */
+:-include('baldes.pl').
 
 sucessor(b(X,Y),b(4,Y),C):-
   X<4,
@@ -9,7 +10,7 @@ sucessor(b(X,Y),b(4,Y),C):-
 
 /*heuristica*/
 h(b(X,Y),H):-
-  estadofinal(b(Xf,Yf)),
+  estado_final(b(Xf,Yf)),
   H is max(abs(X-Xf),abs(Y-Yf)).
 
 /*caso base*/
@@ -27,5 +28,5 @@ astar(F,G,[[E|Can]|R],Sol):-
 
 
 solve_astar(Sol):-
-  estadoinicial(Ei),h(Ei,Hi),
+  estado_inicial(Ei),h(Ei,Hi),
   astar([(Hi,0,[Ei])],Sol).
