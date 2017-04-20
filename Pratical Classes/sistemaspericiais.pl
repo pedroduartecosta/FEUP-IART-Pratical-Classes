@@ -1,3 +1,5 @@
+:-dynamic(facto/3).
+
 % Regra 1
 % se motor=nao e bateria=nao entao problema=bateria com fc=1
 
@@ -50,3 +52,9 @@ verifica(A,V,Fc):-
 
 verifica(A,V,FC):-
   deduz(A,V,FC).
+
+% Para testar:
+/*
+?- verifica(problema,V,FC).
+
+*/
